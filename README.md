@@ -19,7 +19,7 @@ make clean
 **To run:**
 
 ```console
-./proxy cache_size_in_bytes
+./proxy
 ```
 
 ## Description
