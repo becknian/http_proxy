@@ -78,7 +78,8 @@ To maintain a high level of throughput even under multiple simultaneous client r
 
 ### 3. Testing
 
-First, download a resource located at a URL using the _wget_ command without the proxy. This is the correct resource. Then download the same resource at the same URL with your proxy. Use the _diff_ command to check if the two downloaded resources matches. Suppose your HTTP proxy is started on _remote02.cs.binghamton.edu_ port 47590.  You can run the following Bash shell command in an EMPTY directory on a remote.cs computer to download web resource via your proxy.
+You first download a resource located at a URL using the wget command without the proxy. This is the correct resource. Then you download the same resource at the same URL with your proxy. Use the diff command to check if the two downloaded resources matches.
+Suppose your HTTP proxy is started on eecs325-VirtualBox port 47590. You can run the following Bash shell command
 
 ```console
 $> bash
