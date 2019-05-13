@@ -82,20 +82,19 @@ First, download a resource located at a URL using the _wget_ command without the
 
 ```console
 $> bash
-$> export http_proxy= http://remote02.cs.binghamton.edu:47590 && wget http://www.foo.com/bar.html
+$> export http_proxy=http://127.0.0.1:47590 && wget http://www.foo.com/bar.html
 ```
 
 To download without the HTTP proxy, use the following command:
 
 ```console
-$> export http_proxy="" && wget http://www.foo.com/bar.htmlNote:
+$> export http_proxy="" && wget http://www.foo.com/bar.html
 ```
 
-You must replace `http://www.foo.com/bar.html` with a valid URL. You may also run your HTTP proxy on your own machine and use Wireshark for debugging. Your web browser also has a cache. A second request for the same URL may be directly served by your browser cache without going through the proxy. Therefore, you are recommended to use _wget_ for debuggingand testing.
 
 ### 4. Note
 
-- You MUST replace http://www.foo.com/bar.html with a valid URL.
+- You MUST replace `http://www.foo.com/bar.html` with a valid URL.
 - Since this is only an HTTP proxy, not an HTTPS proxy, your URL MUST
 use HTTP, not HTTPS.
 - You may also run your HTTP proxy on your own machine and use
