@@ -93,21 +93,14 @@ $> export http_proxy="" && wget http://www.foo.com/bar.htmlNote:
 
 You must replace `http://www.foo.com/bar.html` with a valid URL. You may also run your HTTP proxy on your own machine and use Wireshark for debugging. Your web browser also has a cache. A second request for the same URL may be directly served by your browser cache without going through the proxy. Therefore, you are recommended to use _wget_ for debuggingand testing.
 
-### 4. Caching
+### 4. Note
 
-The _HTTP proxy_ implements caching.  With caching, the proxy stores the responses of past requests in its local storage. If an incoming request matches an entry in the cache, the proxy returns its cached data in its local storage to the client directly. This can greatly reduce the response time and reduce the network bandwidth. The cache size is set as a command line input to the proxy executable. For example, if the maximum cache size is 320,000 bytes, then your proxy should be started as: ___./proxy 320000___. If the cache becomes full, Least Recently Used (LRU) replacement policy is used for selecting an entry in the cache to evict. Upon successfully serving a request, your proxy writes to standard output (stdout) the following items:
-
-**client IP** - client’s IP address in dotted decimal representation.  
-**requested URL**  
-**cache status** - can only be one of the two values: __CACHE_HIT__ or __CACHE_MISS__  
-**content length** - the size of the entity body in bytes.  
-**request time** - request processing time in milliseconds from when the connection from the client is accepted to when the connection to the client is closed (i.e., the last bytes were sent to the client).  
-
-These five items of a same request should be printed to a same line and seperated by the “|” character. Below is an example:  
-
-```console
-128.226.118.20|http://www.foo.com/bar.html|CACHE_MISS|2693|300  
-128.226.118.26|http://www.foo.com/bar.html|CACHE_HIT|2693|2
-```
-
-The first request for `http://www.foo.com/bar.html` was not found in the cache. So the resource was fetched from the remote server. Total request time was 300 ms. When a different client with a different IP address requested the same URL, it was a cache hit, and the request time was much smaller, only 2 ms.
+- You MUST replace http://www.foo.com/bar.html with a valid URL.
+- Since this is only an HTTP proxy, not an HTTPS proxy, your URL MUST
+use HTTP, not HTTPS.
+- You may also run your HTTP proxy on your own machine and use
+Wireshark for debugging.
+- Your web browser also has a cache. A second request for the same URL
+may be directly served by your browser cache without going through the
+proxy. Therefore, you are recommended to use wget for debugging and
+testing.
